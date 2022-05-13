@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="<%= baseUrl %>logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <style lang="css">
+      @keyframes ball-pulse-sync {
+        33% {
+          transform: translateY(10px);
+        }
+        66% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      .ball-pulse-sync > div:nth-child(0) {
+        animation: ball-pulse-sync 0.6s -0.21s infinite ease-in-out;
+      }
+      .ball-pulse-sync > div:nth-child(1) {
+        animation: ball-pulse-sync 0.6s -0.14s infinite ease-in-out;
+      }
+      .ball-pulse-sync > div:nth-child(2) {
+        animation: ball-pulse-sync 0.6s -0.07s infinite ease-in-out;
+      }
+      .ball-pulse-sync > div:nth-child(3) {
+        animation: ball-pulse-sync 0.6s 0s infinite ease-in-out;
+      }
+      .ball-pulse-sync > div {
+        background-color: #4054ec;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        animation-fill-mode: both;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root-app">
+      <!-- 页面资源初始加载动画 -->
+      <div class="ball-pulse-sync" style="margin-left: 45%; margin-top: 18%">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

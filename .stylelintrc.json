@@ -1,0 +1,37 @@
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-standard",
+    "stylelint-config-html",
+    "stylelint-config-idiomatic-order",
+    "stylelint-prettier/recommended"
+  ],
+  "ignoreFiles": ["**/*.ts"],
+  "overrides": [
+    {
+      "files": ["**/*.less"],
+      "customSyntax": "postcss-less",
+      "rules": {
+        "block-closing-brace-empty-line-before": null,
+        "block-closing-brace-newline-after": null,
+        "block-closing-brace-newline-before": null,
+        "block-closing-brace-space-before": null,
+        "block-opening-brace-newline-after": null,
+        "block-opening-brace-space-after": null,
+        "block-opening-brace-space-before": null,
+        "declaration-block-semicolon-newline-after": null,
+        "declaration-block-semicolon-space-after": null,
+        "declaration-block-semicolon-space-before": null,
+        "declaration-block-trailing-semicolon": null
+      }
+    }
+  ],
+  "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["deep"]
+      }
+    ]
+  }
+}
