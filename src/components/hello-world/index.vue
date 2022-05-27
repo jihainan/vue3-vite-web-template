@@ -2,6 +2,8 @@
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
 
+    <a-button @click="testMessage" type="primary">Test</a-button>
+
     <h3>
       You’ve successfully created a project with
       <a target="_blank" href="https://vitejs.dev/">Vite</a> +
@@ -32,7 +34,13 @@
 </template>
 
 <script setup lang="ts">
+import { Message } from "@arco-design/web-vue";
+
 import dayjs from "@/utils/widgets/time";
+
+const testMessage = () => {
+  Message.success("success");
+};
 
 defineProps<{
   msg: string;
