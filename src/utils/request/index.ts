@@ -5,7 +5,7 @@ import errorHandler from "./error-handler";
 import { requestInterceptor, responseInterceptor } from "./interceptors";
 
 const request: AxiosInstance = axios.create({
-  baseURL: import.meta.env.LARK_MCC_API_PREFIX as string,
+  baseURL: import.meta.env.WEB_TEMPLATE_API_PREFIX as string,
   timeout: 1000 * 10,
 });
 
