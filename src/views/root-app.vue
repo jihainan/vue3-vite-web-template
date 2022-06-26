@@ -1,10 +1,14 @@
 <!-- project root component -->
 <template>
   <router-view />
+  <component-global-loading :visible="useLoadStateStore().loading" />
 </template>
 
 <script setup lang="ts">
 import { RouterView } from "vue-router";
+
+import ComponentGlobalLoading from "@/components/loading/global.vue";
+import { useLoadStateStore } from "@/stores/load-state";
 </script>
 
 <style lang="less">
