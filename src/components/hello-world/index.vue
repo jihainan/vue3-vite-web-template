@@ -34,6 +34,9 @@
     <h1>加载动画</h1>
     <a-button @click="triggerLoadingModal"> 触发键 </a-button>
     <component-global-loading :visible="loadingModal" />
+
+    <h1>加载动画 ———— 异步触发</h1>
+    <a-button @click="triggerFetch"> 异步触发Loading </a-button>
   </div>
 </template>
 
@@ -42,6 +45,7 @@ import { Message } from "@arco-design/web-vue";
 import { ref } from "vue";
 
 import ComponentGlobalLoading from "@/components/loading/global.vue";
+import { getUsers } from "@/service/api";
 import dayjs from "@/utils/widgets/time";
 
 defineProps<{
@@ -58,6 +62,9 @@ const triggerLoadingModal = () => {
   loadingModal.value = true;
   setTimeout(() => (loadingModal.value = false), 3000);
 };
+
+// 触发异步数据加载
+const triggerFetch = () => getUsers(5);
 </script>
 
 <style scoped lang="less">
