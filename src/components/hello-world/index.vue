@@ -30,21 +30,34 @@
       // 效果如下
     </pre>
     <span>{{ dayjs().to(dayjs("2022-05-01")) }}</span>
+
+    <h1>加载动画</h1>
+    <a-button @click="triggerLoadingModal"> 触发键 </a-button>
+    <component-global-loading :visible="loadingModal" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Message } from "@arco-design/web-vue";
+import { ref } from "vue";
 
+import ComponentGlobalLoading from "@/components/loading/global.vue";
 import dayjs from "@/utils/widgets/time";
+
+defineProps<{
+  msg: string;
+}>();
 
 const testMessage = () => {
   Message.success("success");
 };
 
-defineProps<{
-  msg: string;
-}>();
+// 控制加载动画弹出框的显示状态
+const loadingModal = ref(false);
+const triggerLoadingModal = () => {
+  loadingModal.value = true;
+  setTimeout(() => (loadingModal.value = false), 3000);
+};
 </script>
 
 <style scoped lang="less">
