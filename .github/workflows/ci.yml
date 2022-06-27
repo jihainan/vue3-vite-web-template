@@ -1,9 +1,6 @@
 
 name: Template Build and Deploy
 on:
-  pull_request:
-    branches:
-      - gh-pages-deploy
   push:
     branches:
       - gh-pages-deploy
