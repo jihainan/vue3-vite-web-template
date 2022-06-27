@@ -1,0 +1,45 @@
+
+name: Template Build and Deploy
+on:
+  pull_request:
+    branches:
+      - gh-pages-deploy
+  push:
+    branches:
+      - gh-pages-deploy
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+      name: Prepare
+      runs-on: ubuntu-latest
+      steps:
+        - uses: DerYeger/yarn-setup-action@master
+          with:
+            node-version: 16
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: 16
+      - run: yarn lint
+
+  build-and-deploy:
+    name: Build
+    runs-on: ubuntu-latest
+    needs: prepare
+    steps:
+      - uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: 16
+      - run: yarn build
+      - uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+      
