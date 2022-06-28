@@ -27,7 +27,7 @@ jobs:
           node-version: 16
       - run: yarn lint
 
-  build-and-deploy:
+  build:
     name: Build
     runs-on: ubuntu-latest
     needs: prepare
@@ -36,7 +36,12 @@ jobs:
         with:
           node-version: 16
       - run: yarn build
+      
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
-      
